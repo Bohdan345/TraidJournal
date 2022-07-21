@@ -10,7 +10,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         Deal deal = new Deal();
-
+        System.out.println("smth ");
 
 
         printMenu();
