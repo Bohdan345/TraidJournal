@@ -21,6 +21,9 @@ public class Statistic {
 
 
     public void getDealsStatistic() {
+
+        System.out.println("Test");
+
         System.out.println("Выберите статистику ");
         System.out.println("1: Статистика [Профитных] сделок");
         System.out.println("2: Статистика [Убыточных] сделок");
