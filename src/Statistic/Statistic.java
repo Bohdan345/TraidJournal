@@ -24,6 +24,8 @@ public class Statistic {
 
         System.out.println("Test 12345");
         System.out.println("ASDAS");
+        System.out.println("ASDA123S");
+        System.out.println("ASDA123S");
 
         System.out.println("Выберите статистику ");
         System.out.println("1: Статистика [Профитных] сделок");
