@@ -11,7 +11,9 @@ public class Main {
 
         Deal deal = new Deal();
         System.out.println("smth ");
-
+        System.out.println("smth ");
+        System.out.println("smth ");
+        System.out.println(12321);
 
         printMenu();
         int param = scanner.nextInt();
