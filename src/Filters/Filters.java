@@ -1,5 +1,6 @@
 package Filters;
 
+import Deals.Deal;
 import Deals.DealResult;
 
 import java.util.Scanner;
@@ -47,8 +48,20 @@ public class Filters {
 
 
     public void dateFilter() {
+        System.out.println("1. Фильтр по дате открытия");
+        System.out.println("2. Фильтр по дате закрытия");
+        System.out.println("3. Фильтр за  период");
+
+        switch (scanner.nextInt()) {
+            case 1:
+                for (int i = 0; i < Deals.Deal.getDealsList().size(); i++) {
+                    if (Deals.Deal.getDealsList().get(i).getCoinName().equalsIgnoreCase(filteredCoinName));
+                }
 
 
+            case 2:
+            case 3:
+        }
     }
 
 

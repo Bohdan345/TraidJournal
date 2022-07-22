@@ -6,7 +6,6 @@ import Utils.DataCreater;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -26,7 +25,11 @@ public class Deal {
     private double endPrice;
     private String coment;
 
-    private String openDealDate;
+    private String startDate;
+    private String endDate = "";
+
+    private String startTime;
+    private String endTime = "";
 
     public double getEndPrice() {
         return endPrice;
@@ -36,7 +39,6 @@ public class Deal {
         this.endPrice = endPrice;
     }
 
-    private String closeDealDate;
 
     private int profit;
 
@@ -54,8 +56,9 @@ public class Deal {
         this.coinName = coin;
         this.startPrice = startPrice;
         this.endPrice = endPrice;
-        this.openDealDate = dataCreater.getDateDeal();
-        this.closeDealDate = null;
+        this.startDate = dataCreater.getDateDeal();
+        this.startTime = dataCreater.getTimeDeal();
+
 
     }
 
@@ -63,6 +66,8 @@ public class Deal {
         this.dealType = dealType;
         this.coinName = coin;
         this.startPrice = startPrice;
+        this.startDate = dataCreater.getDateDeal();
+        this.startTime = dataCreater.getTimeDeal();
         this.coment = coment;
 
     }
@@ -71,7 +76,8 @@ public class Deal {
         this.dealType = dealType;
         this.coinName = coin;
         this.startPrice = startPrice;
-
+        this.startDate = dataCreater.getDateDeal();
+        this.startTime = dataCreater.getTimeDeal();
         this.dealResult = dealResult;
 
 
@@ -185,6 +191,7 @@ public class Deal {
         }
     }
 
+
     public void closeDeal(int dealIndex) {
         if (getDeal(dealIndex).getDealStatus().equals(DealStatus.ACTIVE)) {
 
@@ -192,7 +199,8 @@ public class Deal {
             System.out.println("Выберите результат сделки : ");
             getDeal(dealIndex).setDealResult(chooseDealResult());
             scanner.nextLine();
-            getDeal(dealIndex).setCloseDealDate(dataCreater.getDateDeal());
+            getDeal(dealIndex).setEndDate(dataCreater.getDateDeal());
+            getDeal(dealIndex).setEndTime(dataCreater.getTimeDeal());
 
             setDealProfit(dealIndex);
 
@@ -254,18 +262,12 @@ public class Deal {
 
     public void faker() {
         System.out.println("Fake data was created");
-        dealsList.add(new Deal("OGN", DealType.LONG, 1.22, DealResult.PROFIT));
-        dealsList.add(new Deal("ADA", DealType.SHORT, 0.93, DealResult.PROFIT));
-        dealsList.add(new Deal("DOT", DealType.SHORT, 22, "Быстрая сделка"));
-        dealsList.add(new Deal("REN", DealType.SHORT, 15, DealResult.FREE));
-        dealsList.add(new Deal("ICP", DealType.LONG, 27, "Последняя сделка"));
-        dealsList.add(new Deal("LIT", DealType.SHORT, 150, "Последняя сделка"));
+
         dealsList.add(new Deal("ETH", DealType.LONG, 3444, "Последняя сделка"));
         dealsList.add(new Deal("BTC", DealType.LONG, 55000, "Последняя сделка"));
         dealsList.add(new Deal("ADA", DealType.LONG, 2.33, DealResult.PROFIT));
         dealsList.add(new Deal("CRO", DealType.SHORT, 0.44, DealResult.PROFIT));
-        dealsList.add(new Deal("ATAN", DealType.SHORT, 4.44, DealResult.PROFIT));
-        dealsList.add(new Deal("CRV", DealType.SHORT, 4.44, DealResult.PROFIT));
+
 
     }
 
@@ -360,7 +362,7 @@ public class Deal {
     }
 
     public String toString(int index) {
-        return "Deals.Deal{" + " № " + index + '\'' + ",  дат_отк: " + getDeal(index).getOpenDealDate() + ",  дат_зак: " + getDeal(index).getCloseDealDate() + ",  тикет : '" + coinName + '\'' + ",  тип : " + dealType + ",  результат_сделки : " + dealResult + '(' + getDeal(index).getProfit() + "$" + ')' + ",  статус :" + dealStatus + ",  цена_входа : " + startPrice + ",  цена_закрытия : " + endPrice + ",  комент: " + getComent() + '}';
+        return "Deals.Deal{" + " № " + index + '\'' + ",  дат_отк: " + getDeal(index).getStartDate() + getDeal(index).getStartTime() + ",  дат_зак: " + getDeal(index).getEndDate() + getDeal(index).getEndTime() + ",  тикет : '" + coinName + '\'' + ",  тип : " + dealType + ",  результат_сделки : " + dealResult + '(' + getDeal(index).getProfit() + "$" + ')' + ",  статус :" + dealStatus + ",  цена_входа : " + startPrice + ",  цена_закрытия : " + endPrice + ",  комент: " + getComent() + '}';
     }
 
     private void printDealFields() {
@@ -430,21 +432,14 @@ public class Deal {
         this.coment = coment;
     }
 
-    public String getOpenDealDate() {
-        return openDealDate;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public void setOpenDealDate(String openDealDate) {
-        this.openDealDate = openDealDate;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
-    public String getCloseDealDate() {
-        return closeDealDate;
-    }
-
-    public void setCloseDealDate(String closeDealDate) {
-        this.closeDealDate = closeDealDate;
-    }
 
     public void setProfit(int profit) {
         this.profit = profit;
@@ -459,5 +454,28 @@ public class Deal {
         return dealsList;
     }
 
+    public String getEndDate() {
+        return endDate;
+    }
 
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
 }
