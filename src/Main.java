@@ -25,7 +25,7 @@ public class Main {
                     System.out.println("Введите значение от 0-" + menuPositions);
                     param = scanner.nextInt();
                     break;
-                case 11:
+                case 11 :
                     deal.addDeal();
                     System.out.println("Введите значение от 0-" + menuPositions);
                     param = scanner.nextInt();
