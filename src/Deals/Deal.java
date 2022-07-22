@@ -5,6 +5,7 @@ import Utils.DataCreater;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,7 +13,9 @@ public class Deal {
 
 
     public Scanner scanner = new Scanner(System.in);
+
     DataCreater dataCreater = new DataCreater();
+
 
     private DealType dealType;
     private String coinName;
@@ -68,6 +71,7 @@ public class Deal {
         this.dealType = dealType;
         this.coinName = coin;
         this.startPrice = startPrice;
+
         this.dealResult = dealResult;
 
 
@@ -198,7 +202,6 @@ public class Deal {
             getDeal(dealIndex).setComent(scanner.nextLine());
 
 
-
         } else {
             System.out.println("Выбранная сделка уже закрыта ");
         }
@@ -228,7 +231,7 @@ public class Deal {
      * break;
      * }
      * }
-     */
+     **/
 
     public void showDealList() {
 
@@ -329,15 +332,6 @@ public class Deal {
 
     }
 
-    /*
-        private void writeComent(int dealIndex) {
-            if (getDeal(dealIndex).getDealStatus().equals(Deals.DealStatus.CLOSE))
-                System.out.println("Оставте комент по сделке:");
-            String text = scanner.nextLine();
-            getDeal(dealIndex).setComent(text);
-
-        }
-    */
     private DealResult chooseDealResult() {
 
         System.out.println("1: PROFIT");
