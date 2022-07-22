@@ -10,10 +10,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         Deal deal = new Deal();
-        System.out.println("smth ");
-        System.out.println("smth ");
-        System.out.println("smth ");
-        System.out.println(12321);
 
         printMenu();
         int param = scanner.nextInt();
@@ -110,8 +106,8 @@ public class Main {
                         "3: Удалить сделку" + "\n" +
                         "4: Список сделок " + "\n" +
                         "5: Закрыть сделку  " + "\n" +
-                    //    "6: Найти  сделку  " + "\n" +
-                   //     "7: Получить статистику  " + "\n" +
+                        //    "6: Найти  сделку  " + "\n" +
+                        //     "7: Получить статистику  " + "\n" +
                         "0: Выйти" + "\n"
 
 
