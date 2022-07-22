@@ -12,7 +12,6 @@ public class Main {
         Deal deal = new Deal();
 
 
-
         printMenu();
         int param = scanner.nextInt();
 
@@ -20,13 +19,13 @@ public class Main {
         while (param != 0) {
 
             switch (param) {
-                case 11:
+                case 1:
                     deal.faker();
 
                     System.out.println("Введите значение от 0-" + menuPositions);
                     param = scanner.nextInt();
                     break;
-                case 1:
+                case 11:
                     deal.addDeal();
                     System.out.println("Введите значение от 0-" + menuPositions);
                     param = scanner.nextInt();
@@ -64,30 +63,30 @@ public class Main {
                     System.out.println("Введите значение от 0-" + menuPositions);
                     param = scanner.nextInt();
                     break;
-                /**
-                 case 6:
-                 if (Deal.getDealsList().isEmpty()) {
-                 System.out.println("У вас нет сделок ");
-                 System.out.println("Введите значение от 0-" + menuPositions);
-                 param = scanner.nextInt();
-                 break;
-                 } else {
+
+                case 6:
+                    if (Deal.getDealsList().isEmpty()) {
+                        System.out.println("У вас нет сделок ");
+                        System.out.println("Введите значение от 0-" + menuPositions);
+                        param = scanner.nextInt();
+                        break;
+                    } else {
 
 
-                 deal.filteringDeal();
-                 System.out.println("Введите значение от 0-" + menuPositions);
-                 param = scanner.nextInt();
-                 break;
-                 }
+                        deal.filteringDeal();
+                        System.out.println("Введите значение от 0-" + menuPositions);
+                        param = scanner.nextInt();
+                        break;
+                    }
+                    /**
+                     case 7:
+                     statistic.getDealsStatistic();
+                     System.out.println("Введите значение от 0-" + menuPositions);
+                     param = scanner.nextInt();
 
-                 case 7:
-                 statistic.getDealsStatistic();
-                 System.out.println("Введите значение от 0-" + menuPositions);
-                 param = scanner.nextInt();
+                     break;
 
-                 break;
-
-                 */
+                     */
                 case 0:
                     param = 0;
             }
@@ -97,7 +96,7 @@ public class Main {
 
     }
 
-    public static int menuPositions =5;
+    public static int menuPositions = 6;
 
     public static void printMenu() {
 
@@ -108,8 +107,8 @@ public class Main {
                         "3: Удалить сделку" + "\n" +
                         "4: Список сделок " + "\n" +
                         "5: Закрыть сделку  " + "\n" +
-                   //  "6: Найти  сделку  " + "\n" +
-                   //     "7: Получить статистику  " + "\n" +
+                        "6: Найти  сделку  " + "\n" +
+                        //     "7: Получить статистику  " + "\n" +
                         "0: Выйти" + "\n"
 
 

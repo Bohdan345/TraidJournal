@@ -49,7 +49,6 @@ public class Deal {
 
     }
 
-
     public Deal(String coin, DealType dealType, double startPrice, double endPrice) {
         this.dealType = dealType;
         this.coinName = coin;
@@ -186,7 +185,6 @@ public class Deal {
         }
     }
 
-
     public void closeDeal(int dealIndex) {
         if (getDeal(dealIndex).getDealStatus().equals(DealStatus.ACTIVE)) {
 
@@ -208,31 +206,31 @@ public class Deal {
         }
     }
 
-    /**
-     * public void filteringDeal() {
-     * System.out.println("1: Найти по [Названию монеты]");
-     * System.out.println("2: Найти по [Результату сделки]");
-     * System.out.println("3: Найти по [Дате сделки]");
-     * <p>
-     * int filterType = scanner.nextInt();
-     * <p>
-     * switch (filterType) {
-     * case 1:
-     * <p>
-     * filters.coinNameFilter();
-     * <p>
-     * break;
-     * case 2:
-     * System.out.println("Выберите результат сделок  : ");
-     * chooseDealResult();
-     * filters.dealResultFilter(getDealResult());
-     * break;
-     * case 3:
-     * filters.dateFilter();
-     * break;
-     * }
-     * }
-     **/
+
+    public void filteringDeal() {
+        System.out.println("1: Найти по [Названию монеты]");
+        System.out.println("2: Найти по [Результату сделки]");
+        System.out.println("3: Найти по [Дате сделки]");
+
+        int filterType = scanner.nextInt();
+
+        switch (filterType) {
+            case 1:
+
+                filters.coinNameFilter();
+
+                break;
+            case 2:
+                System.out.println("Выберите результат сделок  : ");
+                chooseDealResult();
+                filters.dealResultFilter(getDealResult());
+                break;
+            case 3:
+                filters.dateFilter();
+                break;
+        }
+    }
+
 
     public void showDealList() {
 
@@ -357,9 +355,6 @@ public class Deal {
                 dealResult = DealResult.FREE;
                 break;
 
-//            case 4:
-//                dealStage = DealStage.IN_PROGRESS;
-//                break;
         }
         return dealResult;
     }
