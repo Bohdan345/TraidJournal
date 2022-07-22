@@ -1,20 +1,18 @@
 package Deals;
 
 
+import Utils.DataCreater;
+
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class Deal  {
+public class Deal {
 
 
     public Scanner scanner = new Scanner(System.in);
-
-    Date date = new Date();
-
-
+    DataCreater dataCreater = new DataCreater();
 
     private DealType dealType;
     private String coinName;
@@ -53,7 +51,7 @@ public class Deal  {
         this.coinName = coin;
         this.startPrice = startPrice;
         this.endPrice = endPrice;
-        this.openDealDate = getDate();
+        this.openDealDate = dataCreater.getDateDeal();
         this.closeDealDate = null;
 
     }
@@ -93,8 +91,6 @@ public class Deal  {
         dealsList.add(new Deal(coin.toUpperCase(), type, price, finishPrice));
 
         System.out.println("Сделка успешно создана !");
-
-
 
 
         showDealList();
@@ -193,7 +189,7 @@ public class Deal  {
             System.out.println("Выберите результат сделки : ");
             getDeal(dealIndex).setDealResult(chooseDealResult());
             scanner.nextLine();
-            getDeal(dealIndex).setCloseDealDate(getDate());
+            getDeal(dealIndex).setCloseDealDate(dataCreater.getDateDeal());
 
             showDealProfit(dealIndex);
 
@@ -207,31 +203,31 @@ public class Deal  {
         }
     }
 
-/**
-    public void filteringDeal() {
-        System.out.println("1: Найти по [Названию монеты]");
-        System.out.println("2: Найти по [Результату сделки]");
-        System.out.println("3: Найти по [Дате сделки]");
-
-        int filterType = scanner.nextInt();
-
-        switch (filterType) {
-            case 1:
-
-                filters.coinNameFilter();
-
-                break;
-            case 2:
-                System.out.println("Выберите результат сделок  : ");
-                chooseDealResult();
-                filters.dealResultFilter(getDealResult());
-                break;
-            case 3:
-                filters.dateFilter();
-                break;
-        }
-    }
-*/
+    /**
+     * public void filteringDeal() {
+     * System.out.println("1: Найти по [Названию монеты]");
+     * System.out.println("2: Найти по [Результату сделки]");
+     * System.out.println("3: Найти по [Дате сделки]");
+     * <p>
+     * int filterType = scanner.nextInt();
+     * <p>
+     * switch (filterType) {
+     * case 1:
+     * <p>
+     * filters.coinNameFilter();
+     * <p>
+     * break;
+     * case 2:
+     * System.out.println("Выберите результат сделок  : ");
+     * chooseDealResult();
+     * filters.dealResultFilter(getDealResult());
+     * break;
+     * case 3:
+     * filters.dateFilter();
+     * break;
+     * }
+     * }
+     */
 
     public void showDealList() {
 
@@ -251,7 +247,7 @@ public class Deal  {
             System.out.println("До цели осталось: " + finance.perpouseDeposit() + "$,  ");
 
         */
-}
+    }
 
     public void faker() {
         System.out.println("Fake data was created");
@@ -472,8 +468,5 @@ public class Deal  {
         return dealsList;
     }
 
-    public String getDate() {
-        return String.valueOf(date);
-    }
 
 }
