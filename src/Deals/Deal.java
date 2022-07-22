@@ -68,7 +68,6 @@ public class Deal {
         this.dealType = dealType;
         this.coinName = coin;
         this.startPrice = startPrice;
-
         this.dealResult = dealResult;
 
 
@@ -141,7 +140,7 @@ public class Deal {
                 //change deal stage  (PROFIT,FAIL,IN_PROGRESS,FREE)
                 System.out.println("Выберите новый результат сделки: ");
                 getDeal(dealIndex).setDealResult(chooseDealResult());
-                showDealProfit(dealIndex);
+                setDealProfit(dealIndex);
                 param = 0;
                 break;
 
@@ -185,18 +184,20 @@ public class Deal {
 
     public void closeDeal(int dealIndex) {
         if (getDeal(dealIndex).getDealStatus().equals(DealStatus.ACTIVE)) {
+
             getDeal(dealIndex).setDealStatus(DealStatus.CLOSE);
             System.out.println("Выберите результат сделки : ");
             getDeal(dealIndex).setDealResult(chooseDealResult());
             scanner.nextLine();
             getDeal(dealIndex).setCloseDealDate(dataCreater.getDateDeal());
 
-            showDealProfit(dealIndex);
+            setDealProfit(dealIndex);
 
-//            System.out.println("Оставьте коментарий");
-//            writeComent(dealIndex);
-
+            System.out.println("Оставьте коментарий");
             scanner.nextLine();
+            getDeal(dealIndex).setComent(scanner.nextLine());
+
+
 
         } else {
             System.out.println("Выбранная сделка уже закрыта ");
@@ -267,7 +268,7 @@ public class Deal {
     }
 
 
-    private void showDealProfit(int dealIndex) {
+    private void setDealProfit(int dealIndex) {
         int profit;
         if (getDeal(dealIndex).getDealResult().equals(DealResult.PROFIT)) {
             System.out.println("Укажите прибыль с сделки ");
@@ -369,7 +370,7 @@ public class Deal {
     }
 
     public String toString(int index) {
-        return "Deals.Deal{" + " № " + index + '\'' + ",  дат_отк: " + getDeal(index).getOpenDealDate() + ",  дат_зак: " + getDeal(index).getCloseDealDate() + ",  тикет : '" + coinName + '\'' + ",  тип : " + dealType + ",  результат_сделки : " + dealResult + '(' + getDeal(index).getProfit() + "$" + ')' + ",  статус :" + dealStatus + ",  цена_входа : " + startPrice + ",  цена_закрытия : " + endPrice + '}';
+        return "Deals.Deal{" + " № " + index + '\'' + ",  дат_отк: " + getDeal(index).getOpenDealDate() + ",  дат_зак: " + getDeal(index).getCloseDealDate() + ",  тикет : '" + coinName + '\'' + ",  тип : " + dealType + ",  результат_сделки : " + dealResult + '(' + getDeal(index).getProfit() + "$" + ')' + ",  статус :" + dealStatus + ",  цена_входа : " + startPrice + ",  цена_закрытия : " + endPrice + ",  комент: " + getComent() + '}';
     }
 
     private void printDealFields() {
