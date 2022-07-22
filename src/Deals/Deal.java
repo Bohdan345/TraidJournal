@@ -26,7 +26,7 @@ public class Deal {
     private String coment;
 
     private String startDate;
-    private String endDate = "";
+    private String endDate;
 
     private String startTime;
     private String endTime = "";
@@ -176,6 +176,27 @@ public class Deal {
 
 
             case 6:
+                //change startDate
+                System.out.println("Введите новую дату открытия :");
+                System.out.println("Формат: DD.MM.YY");
+                scanner.nextLine();
+                String newStartDate = scanner.nextLine();
+                dealsList.get(dealIndex).setStartDate(newStartDate);
+                param = 0;
+                break;
+
+
+            case 7:
+                //change endDate
+
+                System.out.println("Введите новую дату закрытия :");
+                System.out.println("Формат: DD.MM.YY");
+                scanner.nextLine();
+                String newEndDate = scanner.nextLine();
+                dealsList.get(dealIndex).setEndDate(newEndDate);
+
+                param = 0;
+                break;
                 /*
 
                 //change coment
@@ -189,6 +210,7 @@ public class Deal {
 */
 
         }
+
     }
 
 
@@ -266,7 +288,10 @@ public class Deal {
         dealsList.add(new Deal("ETH", DealType.LONG, 3444, "Последняя сделка"));
         dealsList.add(new Deal("BTC", DealType.LONG, 55000, "Последняя сделка"));
         dealsList.add(new Deal("ADA", DealType.LONG, 2.33, DealResult.PROFIT));
-        dealsList.add(new Deal("CRO", DealType.SHORT, 0.44, DealResult.PROFIT));
+        dealsList.add(new Deal("ICP", DealType.SHORT, 0.44, DealResult.PROFIT));
+        dealsList.add(new Deal("DOT", DealType.SHORT, 0.44, DealResult.PROFIT));
+        dealsList.add(new Deal("ADA", DealType.SHORT, 0.44, DealResult.PROFIT));
+        dealsList.add(new Deal("RUNA", DealType.SHORT, 0.44, DealResult.PROFIT));
 
 
     }
@@ -372,7 +397,8 @@ public class Deal {
         System.out.println("3: Результат сделки");
         System.out.println("4: Статус");
         System.out.println("5: Цена входа");
-        System.out.println("6: Коментарий");
+        System.out.println("6: Дата открытия ");
+        System.out.println("7: Дата закрытия ");
     }
 
     private Deal getDeal(int dealIndex) {

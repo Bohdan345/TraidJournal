@@ -48,16 +48,25 @@ public class Filters {
 
 
     public void dateFilter() {
-        System.out.println("1. Фильтр по дате открытия");
-        System.out.println("2. Фильтр по дате закрытия");
-        System.out.println("3. Фильтр за  период");
+        System.out.println("1. Фильтр по [Дате открытия]");
+        System.out.println("2. Фильтр по [Дате закрытия]");
+        System.out.println("3. Фильтр [За  период]");
 
         switch (scanner.nextInt()) {
-            case 1:
-                for (int i = 0; i < Deals.Deal.getDealsList().size(); i++) {
-                    if (Deals.Deal.getDealsList().get(i).getCoinName().equalsIgnoreCase(filteredCoinName));
-                }
 
+            case 1:
+                System.out.println("ДД.ММ.ГГ");
+                scanner.nextLine();
+                String newDate = scanner.nextLine();
+
+                for (int i = 0; i < Deals.Deal.getDealsList().size(); i++) {
+                    if (Deals.Deal.getDealsList().get(i).getStartDate().equalsIgnoreCase(newDate)) {
+                        System.out.println(Deals.Deal.getDealsList().get(i).toString(i));
+
+
+                    }
+                }
+            break;
 
             case 2:
             case 3:
