@@ -1,6 +1,7 @@
 package Deals;
 
 
+import Filters.Filters;
 import Utils.DataCreater;
 
 import java.io.IOException;
@@ -11,7 +12,7 @@ import java.util.Scanner;
 
 public class Deal {
 
-
+    Filters filters = new Filters();
     public Scanner scanner = new Scanner(System.in);
 
     DataCreater dataCreater = new DataCreater();
